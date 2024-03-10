@@ -1,4 +1,4 @@
-﻿*{
+*{
     box-sizing: border-box;
 }
 
@@ -33,6 +33,14 @@ a {
     color: white;
     border: 1px solid transparent;
     border-radius: 0.25rem;
+    font-size: 1.08em;
+    font-family: 'Lora', serif;
+}
+
+.btn-big {
+    padding: 0.7rem 1.3rem;
+    line-height: 1.3rem;
+    display: inline-block;
 }
 
 .btn:hover {
@@ -51,6 +59,26 @@ a {
     line-height: 1.5rem;
     font-size: 1.2em;
     font-family: 'Lora', serif;
+}
+
+.msg {
+    width: 100%;
+    margin: 5px auto;
+    padding: 8px;
+    border-radius: 5px;
+    list-style: none;
+}
+
+.success {
+    color: #3a6e3a;
+    border: 1px solid #3a6e3a;
+    background: #bcf5bc;
+}
+
+.error {
+    color: #884b4b;
+    border: 1px solid #884b4b;
+    background: #f5bcbc;
 }
 
 /* Navbar */
@@ -209,12 +237,24 @@ header .menu-toggle{
 
 .content {
     width: 90%;
-    margin: 30px auto 30px
+    margin: 30px auto 30px;
 }
 
 .content .main-content {
     width: 70%;
     float: left;
+}
+
+.content .main-content.lot-page {
+    background: white;
+    padding: 20px 50px;
+    font-size: 1.1em;
+    border-radius: 5px;
+}
+
+.content .main-content.lot-page .lot-title {
+    text-align: center;
+    margin-bottom: 40px;
 }
 
 .content .main-content .lot {
@@ -224,6 +264,19 @@ header .menu-toggle{
     border-radius: 5px;
     background: white;
     position: relative;
+}
+
+.content .popular .lot {
+    border-top: 1px solid #e0e0e0;
+    margin-top: 10px;
+    padding-top: 10px;
+}
+
+.content .popular .lot img {
+    height: 60px;
+    width: 75px;
+    float: left;
+    margin-right: 10px;
 }
 
 .content .main-content .lot .read-more {
@@ -261,7 +314,10 @@ header .menu-toggle{
 .content .sidebar {
     width: 30%;
     float: left;
-    height: 300px;
+}
+
+.content .sidebar.lot-page {
+    padding: 0px 10px;
 }
 
 .content .sidebar .section {
@@ -298,6 +354,31 @@ header .menu-toggle{
     transition: all 0.3s;
 }
 
+/* Auth Pages */
+.auth-content {
+    width: 30%;
+    margin: 50px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 5px;
+}
+
+.auth-content .form-title {
+    text-align: center;
+}
+
+.auth-content form div {
+    margin-bottom: 10px;
+}
+
+.auth-content form p {
+    text-align: center;
+}
+
+.auth-content form p a {
+    text-decoration: underline;
+}
+
 /* Footer */
 .footer {
     background: #303036;
@@ -307,8 +388,79 @@ header .menu-toggle{
 }
 
 .footer .footer-content {
-    border: 1px solid red;
     height: 350px;
+    display: flex;
+}
+
+.footer .footer-content .footer-section {
+    flex: 1;
+    padding: 25px;
+}
+
+.footer .footer-content h1,
+.footer .footer-content h2 {
+    color: white;
+}
+
+.footer .footer-content .about h1 span {
+    color: #05f7ff;
+}
+
+.footer .footer-content .about .contact span {
+    display: block;
+    font-size: 1.1em;
+    margin-bottom: 8px;
+}
+
+.footer .footer-content .about .socials a {
+    border: 1px solid grey;
+    width: 45px;
+    height: 41px;
+    padding-top: 5px;
+    margin-right: 5px;
+    text-align: center;
+    display: inline-block;
+    font-size: 1.3em;
+    border-radius: 5px;
+    transition: all 0.5s;
+}
+
+.footer .footer-content .about .socials a:hover {
+    border: 1px solid white;
+    color: white;
+    transition: all 0.5s;
+}
+
+.footer .footer-content .links ul a {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1.2em;
+    transition: all 0.5s;
+}
+
+.footer .footer-content .links ul a:hover {
+    color: white;
+    margin-left: 15px;
+    transition: all 0.5s;
+}
+
+.footer .footer-content .contact-form .contact-input {
+    background: #272727;
+    color: #bebdbd;
+    margin-bottom: 10px;
+    line-height: 1.5rem;
+    padding: 0.9rem 1.4rem;
+    border: none;
+}
+
+.footer .footer-content .contact-form .contact-input:focus {
+    background: #1a1a1a;
+}
+
+.footer .footer-content .contact-form .contact-btn {
+    float: right;
+    font-size: 1.1em;
+    font-family: 'Lora', serif;
 }
 
 .footer .footer-bottom {
@@ -325,9 +477,51 @@ header .menu-toggle{
 
 /* Media Queries */
 
-@media only screen and (max-width: 750px) {
+@media only screen and (max-width: 950px) {
+    .content {
+        width: 100%;
+    }
+    .auth-content {
+        width: 50%;
+    }
+    .content .main-content .lot {
+        width: 100%;
+    }
+    .content .main-content {
+        width: 100%;
+        padding: 10px;
+    }
+    .content .sidebar {
+        width: 100%;
+        padding: 10px;
+    }
+    .content .sidebar .section.search {
+        margin-top: 30px;
+    }
+    .footer {
+        height: auto;
+    }
+    .footer .footer-content {
+        height: auto;
+        flex-direction: column;
+    }
+    .footer .footer-content .contact-form {
+        padding-bottom: 80px;
+    }
+    .footer .footer-content .contact-form .contact-btn {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 770px) {
     header{
         position: relative;
+    }
+    .auth-content {
+        width: 60%;
+    }
+    .main-content-wrapper {
+        padding: 10px;
     }
     header ul {
         width: 100%;
@@ -368,5 +562,35 @@ header .menu-toggle{
     }
     header .logo{
         margin-left: 0.5em;
+    }
+
+    @media only screen and (max-width: 600px) {
+        .content .main-content .lot {
+            height: auto;
+        }
+        .auth-content {
+            width: 90%;
+        }
+        .content .main-content.lot-page {
+            padding: 10px 20px;
+        }
+        .content .main-content .lot .lot-image {
+            width: 100%;
+        }
+        .content .main-content .lot .lot-preview {
+            width: 100%;
+        }
+        .content .main-content .lot .read-more {
+            position: static;
+            display: block;
+            width: 100%;
+            text-align: center;
+        }
+        .lot-slider .next {
+            right: 10px;
+        }
+        .lot-slider .prev {
+            left: 10px;
+        }
     }
 }
